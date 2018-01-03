@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+   <TITLE>Menu</TITLE>
+   
+  
+   
+   </HEAD>
+   
+   <BODY>
+   
+    <SCRIPT language="JavaScript">
+   
+   function displayInfo() {
+     document.write("<H1>Employee Profile: " + "</H1><BR>");
+     document.writeln("Employee Number: " + this.number + "<BR>");
+     document.writeln("Annual Salary: " + this.salary + "<BR>");
+   }
+   
+   function getInfo() {
+     var menu="0-Exit 1-Employee Number 2-Salary";
+     var choice=prompt(menu,"0");
+     if (choice != null) {
+       if ((choice < 0) || (choice > 2)) {
+         alert ("Invalid choice");
+         this.getInfo();
+       } else {
+         if (choice != "0") {
+           this[choice-1]=prompt("Enter Information","");
+           this.getInfo();
+         }
+       }
+     }
+   }
+   
+   function employee() {
+     this.number=0;
+     this.salary=0;
+     this.displayInfo=displayInfo;
+     this.getInfo=getInfo;
+   }
+   
+   newEmployee=new employee();
+   newEmployee.getInfo();
+   newEmployee.displayInfo();
+
+   
+   </SCRIPT>
+   
+   </BODY> 
+   
+   </HTML>
